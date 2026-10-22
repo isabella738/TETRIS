@@ -48,16 +48,14 @@ int main(){
         comandos();
         
         imprimir();
-        info_para_debug();
+        //info_para_debug();
 
         if(derrota()) break;
         
-        usleep(50000);
+        sleep_ms(50);
         printf(VOLTAR);
     }while(1);
     printf("\nBom Jogo\n");
     
-    restaurar_terminal();
-
     return 0;
 }

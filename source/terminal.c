@@ -47,3 +47,11 @@ void limpar_tela(){
         system("cls");
     #endif
 }
+
+int sleep_ms(int ms){//recebe o tempo em milisegundos
+    #if defined(LINUX)
+        usleep(1000*ms);
+    #else
+        Sleep(ms);
+    #endif
+}

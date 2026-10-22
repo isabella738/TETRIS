@@ -17,5 +17,6 @@
 
 int ler_teclado(char *comando);
 void limpar_tela();
+int sleep_ms(int ms);
 
 #endif
