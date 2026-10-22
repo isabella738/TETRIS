@@ -1,7 +1,6 @@
 # TETRIS
 
-Para jogar: 
-No terminal, abrir a pasta do projeto. Colar: make && ./TETRIS
+Para jogar: Baixe e descompacte o arquivo do programa. Abra-o no terminal. Digitte ./TETRIS no Linux ou abra o executável no Windows  
 
 ## Sobre o Código
 Os blocos são armazenados internamente como uma matriz binária, na qual 0 é espaço vazio e 1 tem bloco. As matrizes são em formato 4x4 pois é o tamanho suficiente para rotacionarem no próprio eixo.  
