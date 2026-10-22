@@ -1,10 +1,15 @@
 #include "settings.h"
-#include "auxiliary.h"
 #include "sprites.h"
+#include "terminal.h"
 #include <string.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
+
+void pausa(){
+    printf("\nPressione qualquer tecla para continuar.\n");
+    getchar();
+}
 
 void iniciar_mapa(){
     for(int y=0; y<ALTURA; y++){
@@ -156,7 +161,7 @@ int verificar_linhas(){
 
 void comandos(){
     char c;
-    if(read(STDIN_FILENO, &c, 1) > 0){
+    if(ler_teclado(&c)){
         switch(c){
             case 'a': movimentar(0); break;
             case 'd': movimentar(1); break;

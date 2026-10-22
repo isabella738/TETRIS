@@ -1,8 +1,8 @@
 //make && ./TETRIS
 #include "settings.h"
-#include "auxiliary.h"
 #include "sprites.h"
 #include "functions.h"
+#include "terminal.h"
 #include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>
@@ -10,18 +10,25 @@
 #include <time.h>
 #include <stdlib.h>
 
-extern struct termios novo_terminal;
-extern struct termios velho_terminal;
+#if defined(LINUX)
+    #include <fcntl.h>
+    #include <unistd.h>
+#endif
 
 int main(){
-    system("clear");
+    limpar_tela();    
     srand(time(NULL));
+    #if defined(LINUX)
+        fcntl(STDIN_FILENO, F_SETFL, O_NONBLOCK);
+        mudar_terminal();
+        system("clear");
+    #else
+        system("cls");
+    #endif
     
     for(int i=0; i<7; i++) printf("%s\n", inicio[i]);
-    pausa(); system("clear");
+    pausa(); limpar_tela();
     
-    mudar_terminal();
-    fcntl(STDIN_FILENO, F_SETFL, O_NONBLOCK);
 
     iniciar_mapa();
 

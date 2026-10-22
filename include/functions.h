@@ -1,3 +1,5 @@
+void pausa();
+
 void iniciar_mapa();
 
 void spawn();
