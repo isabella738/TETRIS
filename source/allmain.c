@@ -1,12 +1,8 @@
-//make && ./TETRIS
 #include "settings.h"
 #include "sprites.h"
 #include "functions.h"
 #include "terminal.h"
 #include <stdio.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <termios.h>
 #include <time.h>
 #include <stdlib.h>
 

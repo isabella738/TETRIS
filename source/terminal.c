@@ -4,7 +4,8 @@
 
 #include "settings.h"
 #include "terminal.h"
-//#include <stdlib.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 #ifdef LINUX
     #include <termios.h>
@@ -24,6 +25,7 @@
     }
 #else
     #include <conio.h>
+    #include <windows.h>
 #endif 
 
 int ler_teclado(char *comando){
@@ -59,7 +61,7 @@ int sleep_ms(int ms){//recebe o tempo em milisegundos
 }
 
 int erro_de_sistema(){
-    #ifndef LINUX || WINDOWS
+    #if !defined (LINUX) || !defined (WINDOWS)
     printf("Sistema operacional não reconhecido. Não é possível compilar o arquivo.\n");
     #endif
 }
