@@ -18,6 +18,8 @@
 int main(){
     limpar_tela();    
     srand(time(NULL));
+
+    if(erro_de_sistema()) return 0;
     #if defined(LINUX)
         fcntl(STDIN_FILENO, F_SETFL, O_NONBLOCK);
         mudar_terminal();
@@ -56,6 +58,9 @@ int main(){
         printf(VOLTAR);
     }while(1);
     printf("\nBom Jogo\n");
+
+    char c; while((c = getchar()) != '\n' && c != EOF);
+    getchar();
     
     return 0;
 }

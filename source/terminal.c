@@ -4,7 +4,7 @@
 
 #include "settings.h"
 #include "terminal.h"
-#include <stdlib.h>
+//#include <stdlib.h>
 
 #ifdef LINUX
     #include <termios.h>
@@ -22,6 +22,8 @@
     void restaurar_terminal(){
         tcsetattr(STDIN_FILENO, TCSANOW, &velho_terminal);
     }
+#else
+    #include <conio.h>
 #endif 
 
 int ler_teclado(char *comando){
@@ -53,5 +55,11 @@ int sleep_ms(int ms){//recebe o tempo em milisegundos
         usleep(1000*ms);
     #else
         Sleep(ms);
+    #endif
+}
+
+int erro_de_sistema(){
+    #ifndef LINUX || WINDOWS
+    printf("Sistema operacional não reconhecido. Não é possível compilar o arquivo.\n");
     #endif
 }
